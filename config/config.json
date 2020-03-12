@@ -1,7 +1,7 @@
 {
   "development": {
     "PORT": 8080,
-    "MONGODB_URI": "mongodb://localhost:27017/Users",
+    "MONGODB_URI": "mongodb://livecicle-db:uu5rqacWeKugWXGYXXFf87G5gOpOhfUKYOK9n0YBS3M2xXfRSvE0xjX1OMjhje3VlQrdU2Dnu2pbKKDIrSsqhQ==@livecicle-db.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@livecicle-db@/Users",
     "JWT_SECRET": "LCSECRET293",
     "JWT_EXP": "2m"
   },
