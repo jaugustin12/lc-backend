@@ -2,10 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "userServer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node userServer",
+    "update": "nodemon --exec babel-node manageEvents",
     "cron": "babel-watch manageEvents.js"
   },
   "keywords": [],

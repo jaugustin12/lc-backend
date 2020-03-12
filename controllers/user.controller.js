@@ -61,7 +61,7 @@ module.exports.register = (req, res) => {
       if (err.code == 11000)
         res.status(422).send(['Duplicate email address found.']);
       else {
-        res.status(400).send('Failed to create new record');
+        res.status(400).send(['Failed to create new record']);
       }
     });
 }
@@ -70,18 +70,17 @@ module.exports.authenticate =  (req, res, next) => {
   const { email, password } = req.body; //object destruturing
   User.findOne({ email: email}, async (err, user) => {
     if (err) {
-      err => res.send(err);
+      err => {return res.send(err);}
     }
     if (!user) {
-      res.send('no User');
+      return res.status(422).send(['no User']);
     }
     if (user) {
       user.verifyPassword(password, user.password)
         .then((isValid) => {
           if (!isValid) {
-            return res.status(401).send({ msg: 'Wrong username or password' });
+            return res.status(422).send(['Wrong username or password']);
           }
-
           const { email, fullName } = user;
           const payload = { email, fullName };
           const jwtToken = jwt.sign(payload, 'anything', {expiresIn: 500});
@@ -89,7 +88,7 @@ module.exports.authenticate =  (req, res, next) => {
           refreshTokens[refreshToken] = payload;
           return res.status(200).send({ msg: 'Login successful', jwt: jwtToken, refreshToken: refreshToken });
         }).catch((err)=> {
-          res.status(401).send(err);
+          return res.status(401).send(err);
         });
     }
   });
