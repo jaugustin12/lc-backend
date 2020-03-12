@@ -6,6 +6,7 @@ const ctrlEvent = require('../controllers/event.controller');
 
 
 const jwtHelper = require('../config/jwtHelper');
+router.get('', (req, res) => res.send('LiveCicle Backend'));
 router.post('/register', ctrlUser.register);
 router.post('/authenticate', ctrlUser.authenticate);
 router.post('/refresh', ctrlUser.refresh);
