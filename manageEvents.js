@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Event = mongoose.model('Event');
-const Event = mongoose.model('pastEvent');
+const PastEventModel = mongoose.model('pastEvent');
 /* var PastEventModel = require('./models/pastEvent.js');
 mongoose.model('PastEventModel'); */
 const Cron = require('cron');
