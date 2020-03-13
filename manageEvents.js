@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-import Event from "./models/event.model";
-import PastEventModel from "./models/pastEvent";
-import Cron from "cron";
+const mongoose = require('mongoose');
+const Event = mongoose.model('Event');
+const PastEventModel = mongoose.model('pastEvent');
+const Cron = require('cron');
 
 const CronJob = Cron.CronJob;
 
