@@ -45,5 +45,6 @@ let pastEvent = new Schema({
     default: 'Open'
   }
 });
-export default mongoose.model('PastEvent', pastEvent, 'past_events');
+
+module.exports = mongoose.model('PastEvent', pastEvent)
 
