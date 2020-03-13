@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
+const Cron = require('cron');
+
 require('./models/event.model.js');
 /* const Event = mongoose.model('Event'); */
 require('./models/pastEvent.js');
-
-const Cron = require('cron');
 
 const CronJob = Cron.CronJob;
 
@@ -28,7 +28,7 @@ module.exports = () => {
                 const newRecord = JSON.parse(JSON.stringify(e));
                 delete newRecord._id;
                 delete newRecord.__v;
-                const newPastEvent = new PastEventModel(newRecord);
+                const newPastEvent = new PastEvent(newRecord);
                 return newPastEvent.save();
               });
 
