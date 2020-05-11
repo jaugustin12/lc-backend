@@ -33,6 +33,15 @@ module.exports = {
         res.send(err);
       });
   },
+  tmEventsBasic: (req, res) => {
+    axios.get('http://app.ticketmaster.com/discovery/v2/events.json?apikey=hneV7jzq6Uz7IyQC7GtEHz5s2nTsU6Jm&page=0&size=200&geoPoint=')
+      .then(json => {
+        res.send(json.data._embedded.events);
+      })
+      .catch(err => {
+        res.send(err);
+      });
+  },
   addEvent: (req, res) => {
     Event.create({
       eventName: req.body.eventName,
