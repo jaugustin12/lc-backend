@@ -15,6 +15,7 @@ router.get('/userProfile', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 router.get('/users', jwtHelper.verifyJwtToken, ctrlUser.users);
 router.post('/posts', jwtHelper.verifyJwtToken, ctrlUser.posts);
 router.post('/ticketmaster-events', ctrlEvent.tmEvents);
+router.get('/ticketmaster-events-basic', ctrlEvent.tmEventsBasic);
 router.get('/users2', ctrlUser.users);
 router.get("/profile/:email", ctrlUser.friendProfile);
 router.post('/follow', jwtHelper.verifyJwtToken, ctrlUser.follow);
