@@ -1,7 +1,7 @@
 require('./config/config');
 require('./models/db');
 const rtsIndex = require('./routes/index.routes');
-const manageEvents = require("./manageEvents");
+/* const manageEvents = require("./manageEvents"); */
 const Grid = require('gridfs-stream');
 const GridFsStorage = require('multer-gridfs-storage');
 const multer = require('multer');
@@ -47,7 +47,7 @@ app.post('/upload', upload, (req, res, err) => {
   return res.json({originalname:req.file.originalname, uploadname:req.file.filename});
 });
  */
-manageEvents();
+/* manageEvents(); */
 
 app.use(cors());
 
